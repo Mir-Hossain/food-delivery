@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food/home/main_home_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food/pages/food/popular_food.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,11 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: MainHomePage());
+    double height = Get.height;
+    double width = Get.width;
+    return ScreenUtilInit(
+        designSize: Size(width, height),
+        builder: (context, child) {
+          return const GetMaterialApp(
+              debugShowCheckedModeBanner: false, home: PopularFoodDetailes());
+        });
   }
 }

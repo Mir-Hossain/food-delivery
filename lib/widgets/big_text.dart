@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BigText extends StatelessWidget {
-  BigText(
-      {super.key,
-      this.color = const Color(0xFF332d2b),
-      required this.text,
-      this.size = 20,
-      this.textOverflow = TextOverflow.ellipsis});
-  Color? color;
+  final Color? color;
   final String text;
   final double size;
   final TextOverflow textOverflow;
+  const BigText(
+      {super.key,
+      this.color = const Color(0xFF332d2b),
+      required this.text,
+      this.size = 0,
+      this.textOverflow = TextOverflow.ellipsis});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class BigText extends StatelessWidget {
       style: TextStyle(
           color: color,
           fontFamily: 'Roboto',
-          fontSize: size,
+          fontSize: size == 0 ? 20.sp : size,
           fontWeight: FontWeight.w400),
     );
   }
